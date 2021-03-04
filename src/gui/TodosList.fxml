@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="261.0" prefWidth="844.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TodosListController">
+   <children>
+      <Label text="Todos">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <padding>
+            <Insets left="5.0" top="5.0" />
+         </padding>
+      </Label>
+      <TableView fx:id="tableViewTodos" prefHeight="200.0" prefWidth="200.0">
+         <columns>
+            <TableColumn fx:id="tableColumnUserId" prefWidth="50.0" text="User Id" />
+            <TableColumn fx:id="tableColumnId" prefWidth="50.0" text="Id" />
+            <TableColumn fx:id="tableColumnTitle" prefWidth="500.0" text="Title" />
+            <TableColumn fx:id="tableColumnCompleted" prefWidth="150.0" text="Completed" />
+         </columns>
+      </TableView>
+   </children>
+</VBox>

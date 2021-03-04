@@ -1,11 +1,13 @@
 package gui;
 
 
+import javafx.scene.control.Button;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -18,6 +20,10 @@ import frameworkProject.Main;
 
 public class AlbumsListController implements Initializable{	
 	
+
+    @FXML
+    private Button buttonMenu;
+    
     @FXML
     private TableView<Albums> tableViewAlbums;
 
@@ -63,6 +69,13 @@ public class AlbumsListController implements Initializable{
   		obsList = FXCollections.observableArrayList(list);
   		tableViewAlbums.setItems(obsList);
   		
-  	} 	
+  	} 	  	
+
+    @FXML
+    void onBtMenuAction(ActionEvent event) {
+    	Stage stage = (Stage) Main.getMainScene().getWindow();
+    	Main main = new Main();
+		main.start(stage);
+    }
 
 }

@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="261.0" prefWidth="844.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PostsListController">
+<VBox prefHeight="261.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PostsListController">
    <children>
       <AnchorPane prefHeight="64.0" prefWidth="844.0">
          <children>
-            <Label layoutX="15.0" layoutY="5.0" text="Posts">
+            <Label layoutX="15.0" layoutY="5.0" text="Posts" textFill="WHITE" AnchorPane.rightAnchor="1320.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -23,23 +23,23 @@
                   <Insets left="5.0" top="5.0" />
                </padding>
             </Label>
-            <TextField fx:id="filterUserIdField" layoutX="96.0" layoutY="10.0" prefHeight="25.0" prefWidth="156.0" promptText="Pesquise na coluna UserId" />
-            <TextField fx:id="filterIdField" layoutX="260.0" layoutY="10.0" promptText="Pesquise na coluna Id" />
-            <TextField fx:id="filterTitleField" layoutX="422.0" layoutY="10.0" promptText="Pesquise na coluna title" />
-            <TextField fx:id="filterBodyField" layoutX="582.0" layoutY="10.0" promptText="Pesquise na coluna Body" />
+            <TextField fx:id="filterUserIdField" layoutX="96.0" layoutY="10.0" prefHeight="25.0" prefWidth="156.0" promptText="Pesquise na coluna UserId" AnchorPane.rightAnchor="1120.0" />
+            <TextField fx:id="filterIdField" layoutX="260.0" layoutY="10.0" promptText="Pesquise na coluna Id" AnchorPane.rightAnchor="960.0" />
+            <TextField fx:id="filterTitleField" layoutX="422.0" layoutY="10.0" promptText="Pesquise na coluna title" AnchorPane.rightAnchor="800.0" />
+            <TextField fx:id="filterBodyField" layoutX="582.0" layoutY="10.0" promptText="Pesquise na coluna Body" AnchorPane.rightAnchor="640.0" />
          </children>
       </AnchorPane>
-      <ToolBar prefHeight="53.0" prefWidth="844.0">
+      <ToolBar prefHeight="27.0" prefWidth="1360.0">
         <items>
-          <Button fx:id="buttonMenu" mnemonicParsing="false" onAction="#onBtMenuAction" text="Menu Principal" />
+          <Button fx:id="buttonMenu" mnemonicParsing="false" onAction="#onBtMenuAction" text="Tela Principal" />
         </items>
       </ToolBar>
       <TableView fx:id="tableViewPosts" prefHeight="200.0" prefWidth="200.0">
          <columns>
             <TableColumn fx:id="tableColumnUserId" prefWidth="50.0" text="User Id" />
             <TableColumn fx:id="tableColumnId" prefWidth="50.0" text="Id" />
-            <TableColumn fx:id="tableColumnTitle" prefWidth="500.0" text="Title" />
-            <TableColumn fx:id="tableColumnBody" prefWidth="600.0" text="Body" />
+            <TableColumn fx:id="tableColumnTitle" prefWidth="450.0" text="Title" />
+            <TableColumn fx:id="tableColumnBody" prefWidth="450.0" text="Body" />
          </columns>
       </TableView>
    </children>

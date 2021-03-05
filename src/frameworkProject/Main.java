@@ -2,11 +2,12 @@ package frameworkProject;
 
 import java.io.IOException;
 
-import api.AlbumsService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import gui.*;
 
@@ -21,16 +22,18 @@ private static Scene mainScene;
 			ScrollPane scrollPane = loader.load();
 			
 			scrollPane.setFitToHeight(true);
-			scrollPane.setFitToWidth(true);
-						
+			scrollPane.setFitToWidth(true);					
+			
 			mainScene = new Scene(scrollPane);
 			primaryStage.setScene(mainScene);
 			primaryStage.setTitle("Projeto Framework");
+			primaryStage.setResizable(false);
 			primaryStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+
 
 	public static Scene getMainScene() {
 		return mainScene;

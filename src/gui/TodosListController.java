@@ -48,21 +48,16 @@ public class TodosListController implements Initializable{
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-  		initializeNodes();  		
-  		
-  	}    
- 
-  	private void initializeNodes() {
- 
+    	 
   		tableColumnUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
   		tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
   		tableColumnTitle.setCellValueFactory(new PropertyValueFactory<>("title")); 
   		tableColumnCompleted.setCellValueFactory(new PropertyValueFactory<>("completed"));   		
   		
   		Stage stage = (Stage) Main.getMainScene().getWindow();
-  		tableViewTodos.prefHeightProperty().bind(stage.heightProperty());
-
-  	}
+  		tableViewTodos.prefHeightProperty().bind(stage.heightProperty());		
+  		
+  	}     
   	
   	public void updateTableView() {
   		if (service == null) {

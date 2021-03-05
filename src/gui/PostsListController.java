@@ -40,29 +40,23 @@ public class PostsListController implements Initializable {
     
     private PostsService service;
     
-    private ObservableList<Posts>obsList;    
-
+    private ObservableList<Posts>obsList;   
+    
     public void setPostsService(PostsService service) {
   		this.service = service;
   	}
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-  		initializeNodes();  		
-  		
-  	}    
- 
-  	private void initializeNodes() {
- 
   		tableColumnUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
   		tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
   		tableColumnTitle.setCellValueFactory(new PropertyValueFactory<>("title")); 
   		tableColumnBody.setCellValueFactory(new PropertyValueFactory<>("body"));  		
   		
   		Stage stage = (Stage) Main.getMainScene().getWindow();
-  		tableViewPosts.prefHeightProperty().bind(stage.heightProperty());
-
-  	}
+  		tableViewPosts.prefHeightProperty().bind(stage.heightProperty());		
+  		
+  	}    
   	
   	public void updateTableView() {
   		if (service == null) {

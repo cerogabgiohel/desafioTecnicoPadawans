@@ -5,26 +5,36 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <VBox prefHeight="261.0" prefWidth="844.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TodosListController">
    <children>
-      <Label text="Todos">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-         <padding>
-            <Insets left="5.0" top="5.0" />
-         </padding>
-      </Label>
-      <ToolBar prefHeight="40.0" prefWidth="200.0">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label layoutX="8.0" layoutY="2.0" text="Todos">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="filterUserIdField" layoutX="91.0" layoutY="5.0" prefHeight="25.0" prefWidth="158.0" promptText="Pesquise na coluna User Id" />
+            <TextField fx:id="filterIdField" layoutX="261.0" layoutY="5.0" promptText="Pesquise na coluna Id" />
+            <TextField fx:id="filterTitleField" layoutX="422.0" layoutY="5.0" promptText="Pesquise na coluna Title" />
+            <TextField fx:id="filterCompletedField" layoutX="579.0" layoutY="5.0" prefHeight="25.0" prefWidth="181.0" promptText="Pesquise na coluna Completed" />
+         </children>
+      </AnchorPane>
+      <ToolBar prefHeight="0.0" prefWidth="844.0">
         <items>
           <Button fx:id="buttonMenu" mnemonicParsing="false" onAction="#onBtMenuAction" text="Menu Principal" />
         </items>
       </ToolBar>
-      <TableView fx:id="tableViewTodos" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="tableViewTodos" prefHeight="357.0" prefWidth="844.0">
          <columns>
             <TableColumn fx:id="tableColumnUserId" prefWidth="50.0" text="User Id" />
             <TableColumn fx:id="tableColumnId" prefWidth="50.0" text="Id" />

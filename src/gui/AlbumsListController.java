@@ -17,7 +17,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import api.Albums;
 import api.AlbumsService;
@@ -30,7 +29,13 @@ public class AlbumsListController implements Initializable{
     private Button buttonMenu;
     
     @FXML
-    private TextField filterField;
+    private TextField filterTitleField;
+
+    @FXML
+    private TextField filterIdField;
+
+    @FXML
+    private TextField filterUserIdField;
     
     @FXML
     private TableView<Albums> tableViewAlbums;
@@ -48,39 +53,7 @@ public class AlbumsListController implements Initializable{
     
     private ObservableList<Albums>obsList;        
     
-    @FXML
-    void onSearch(KeyEvent event) {
-    	
-    	    	
-    	 FilteredList<Albums> filterData = new FilteredList<>(obsList, e-> true);
-    	
-    	 filterField.textProperty().addListener((observableValue, oldValue, newValue) ->{
-    		
-    		filterData.setPredicate((Predicate<? super Albums>) album ->{
-    			
-    			if(newValue == null || newValue.isEmpty()) {
-    				return true;
-    			}
-    			
-    			String lowerCaseFilter = newValue.toLowerCase();
-    			
-    			if(album.getTitle().toLowerCase().contains(lowerCaseFilter)) {
-    				return true;
-    			}
-    			
-    			return false;
-    			
-    		});
-    		
-    		SortedList<Albums>sortedData = new SortedList<>(filterData);
-    		sortedData.comparatorProperty().bind(tableViewAlbums.comparatorProperty());
-    		tableViewAlbums.setItems(sortedData);
-    		  		   		
-    	}); 
-    	
-    	tableViewAlbums.setItems(filterData);
-    }
-
+  
     public void setAlbumsService(AlbumsService service) {
   		this.service = service;
   	}
@@ -105,6 +78,90 @@ public class AlbumsListController implements Initializable{
   		obsList = FXCollections.observableArrayList(list);
   		tableViewAlbums.setItems(obsList);
   		
+  		FilteredList<Albums> filterData = new FilteredList<>(obsList, e-> true);
+  		filterTitleField.setOnKeyReleased(e ->{    			 
+  		    	
+  		    	 filterTitleField.textProperty().addListener((observableValue, oldValue, newValue) ->{
+  		    		
+  		    		filterData.setPredicate((Predicate<? super Albums>) album ->{
+  		    			
+  		    			if(newValue == null || newValue.isEmpty()) {
+  		    				return true;
+  		    			}
+  		    			
+  		    			String lowerCaseFilter = newValue.toLowerCase();
+  		    			
+  		    			if(album.getTitle().toLowerCase().contains(lowerCaseFilter)) {
+  		    				return true;
+  		    			}  		    			
+  		    			return false;
+  		    			
+  		    		});
+  		    		
+  		    		SortedList<Albums>sortedData = new SortedList<>(filterData);
+  		    		sortedData.comparatorProperty().bind(tableViewAlbums.comparatorProperty());
+  		    		tableViewAlbums.setItems(sortedData);
+  		    		  		   		
+  		    	}); 
+  		    	
+  		    	tableViewAlbums.setItems(filterData);  		  
+  		});
+  		
+  		filterUserIdField.setOnKeyReleased(e ->{    			 
+		    	
+  			filterUserIdField.textProperty().addListener((observableValue, oldValue, newValue) ->{
+		    		
+		    		filterData.setPredicate((Predicate<? super Albums>) album ->{
+		    			
+		    			if(newValue == null || newValue.isEmpty()) {
+		    				return true;
+		    			}
+		    			
+		    			String lowerCaseFilter = newValue.toLowerCase();
+		    			
+		    			if(album.getUserId().toString().toLowerCase().contains(lowerCaseFilter)) {
+		    				return true;
+		    			}  		    			
+		    			return false;
+		    			
+		    		});
+		    		
+		    		SortedList<Albums>sortedData = new SortedList<>(filterData);
+		    		sortedData.comparatorProperty().bind(tableViewAlbums.comparatorProperty());
+		    		tableViewAlbums.setItems(sortedData);
+		    		  		   		
+		    	}); 
+		    	
+		    	tableViewAlbums.setItems(filterData);  		  
+		});
+  		
+  		filterIdField.setOnKeyReleased(e ->{    			 
+	    	
+  			filterIdField.textProperty().addListener((observableValue, oldValue, newValue) ->{
+		    		
+		    		filterData.setPredicate((Predicate<? super Albums>) album ->{
+		    			
+		    			if(newValue == null || newValue.isEmpty()) {
+		    				return true;
+		    			}
+		    			
+		    			String lowerCaseFilter = newValue.toLowerCase();
+		    			
+		    			if(album.getId().toString().toLowerCase().contains(lowerCaseFilter)) {
+		    				return true;
+		    			}  		    			
+		    			return false;
+		    			
+		    		});
+		    		
+		    		SortedList<Albums>sortedData = new SortedList<>(filterData);
+		    		sortedData.comparatorProperty().bind(tableViewAlbums.comparatorProperty());
+		    		tableViewAlbums.setItems(sortedData);
+		    		  		   		
+		    	}); 
+		    	
+		    	tableViewAlbums.setItems(filterData);  		  
+		});
   	} 	  	
 
     @FXML

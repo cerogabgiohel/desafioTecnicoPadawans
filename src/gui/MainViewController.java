@@ -93,8 +93,7 @@ public class MainViewController implements Initializable {
 						
 		}
 		catch (IOException e) {
-			Alerts.showAlert("Exceção de E/S", "Erro ao carregar tela", e.getMessage(), AlertType.ERROR);
-			System.out.println(e);
+			Alerts.showAlert("Exceção de E/S", "Erro ao carregar tela", e.getMessage(), AlertType.ERROR);			
 		
 		}
 		

@@ -23,7 +23,9 @@
                   <Insets left="5.0" top="5.0" />
                </padding>
             </Label>
-            <TextField fx:id="filterField" layoutX="340.0" layoutY="7.0" onKeyReleased="#onSearch" prefHeight="25.0" prefWidth="233.0" promptText="Digite um User Id, Id ou Title" />
+            <TextField fx:id="filterTitleField" layoutX="466.0" layoutY="7.0" prefHeight="25.0" prefWidth="162.0" promptText="Pesquise na coluna title" />
+            <TextField fx:id="filterIdField" layoutX="305.0" layoutY="7.0" prefHeight="25.0" prefWidth="129.0" promptText="Pesquise na coluna Id" />
+            <TextField fx:id="filterUserIdField" layoutX="122.0" layoutY="7.0" prefHeight="25.0" prefWidth="162.0" promptText="Pesquise na coluna User Id" />
          </children>
       </AnchorPane>
       <ToolBar prefHeight="40.0" prefWidth="200.0">

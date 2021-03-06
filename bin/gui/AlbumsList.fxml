@@ -30,7 +30,7 @@
       </AnchorPane>
       <ToolBar prefHeight="40.0" prefWidth="200.0">
         <items>
-          <Button fx:id="buttonMenu" mnemonicParsing="false" onAction="#onBtMenuAction" text="Tela Principal" />
+          <Button fx:id="buttonMenu" mnemonicParsing="false" onAction="#onBtMenuAction" text="Tela Inicial" />
         </items>
       </ToolBar>
       <TableView fx:id="tableViewAlbums" prefHeight="219.0" prefWidth="827.0">
